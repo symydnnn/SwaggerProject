@@ -38,6 +38,23 @@ public class ProductController {
 		return productService.getAll(); //Tüm ürünleri listeler
 		
 	}
+	
+	@GetMapping("/getByProductName")
+	@ApiOperation(value="Bu isimdeki ürünü getirme")
+	public List<Product> getByProductName(@RequestParam ("productName") String productName){
+		return productService.getByProductName(productName);  //Ürünü ismine göre arar
+	}
+	@GetMapping("/getByProductNameAndCategory_CategoryId")
+	@ApiOperation(value="Bu isimdeki ve bu Kategori id deki ürünü getirme")
+	public List<Product> getByProductNameAndCategory_CategoryId(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
+		return productService.getByProductNameAndCategory_CategoryId(productName,categoryId);  //Ürünü id ve kategorideki ürünü arar ve düzenler.
+	}
+	
+	@GetMapping("/getByProductNameStartsWith")
+	@ApiOperation(value="Bu isimdeki ve bu Kategori id deki ürünü getirme")
+	public List<Product> getByProductNameStartsWith(@RequestParam("productName") String productName){
+		return productService.getByProductNameStartsWith(productName);  //Baslangıc adına göre sıralar
+	}
 	@PutMapping("/update")
 	@ApiOperation(value="Ürün güncelleme")
 	public void update(@RequestBody Product product){
@@ -54,15 +71,5 @@ public class ProductController {
 	public void delete(@RequestParam ("productId") Product id){
 		 productService.delete(id);  //Kayıtlı olan ürünü siler :: ERROR 500 Hatası
 		
-	}
-	@GetMapping("/getByProductName")
-	@ApiOperation(value="Bu isimdeki ürünü getirme")
-	public List<Product> getByProductName(@RequestParam ("productName") String productName){
-		return productService.getByProductName(productName);  //Ürünü ismine göre arar
-	}
-	@GetMapping("/getByProductNameAndCategory_CategoryId")
-	@ApiOperation(value="Bu isimdeki ve bu Kategori id deki ürünü getirme")
-	public List<Product> getByProductNameAndCategory_CategoryId(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
-		return productService.getByProductNameAndCategory_CategoryId(productName,categoryId);  //Ürünü id ve kategorideki ürünü arar ve düzenler.
 	}
 }

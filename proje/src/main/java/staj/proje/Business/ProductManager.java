@@ -27,28 +27,6 @@ public class ProductManager implements IProductService{
 		return  productDal.findAll();
 	}
 
-	
-	
-	@Override
-	@Transactional
-	public void update(Product product) {
-		productDal.save(product);
-	}
-
-
-	@Override
-	@Transactional
-	public void add(Product product) {
-		productDal.save(product);
-	}
-	
-	
-	@Override
-	public void delete(Product id) {
-		productDal.delete(id);
-		
-	}
-
 
 	@Override
 	@Transactional
@@ -91,5 +69,28 @@ public class ProductManager implements IProductService{
 	public List<Product> getByNameAndCategory(String productName, int categoryId) {
 		return (List<Product>)this.productDal.getByNameAndCategory(productName, categoryId);
 	}
+	
+
+	@Override
+	@Transactional
+	public void update(Product product) {
+		productDal.save(product);
+	}
+
+
+	@Override
+	@Transactional
+	public void add(Product product) {
+		this.productDal.save(product);
+	}
+	
+	
+	@Override
+	@Transactional
+	public void delete(Product id) {
+		this.productDal.delete(id);
+		
+	}
+
 
 }

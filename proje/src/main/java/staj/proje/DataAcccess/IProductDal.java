@@ -14,10 +14,10 @@ public interface IProductDal extends JpaRepository<Product, Integer>{
 	@Query("select p from Product p")
 	List<Product> getAll();
 	
-	@Query("select p from Product p where productName=:productName")
+	///@Query("select p from Product p where productName=:productName")
 	List<Product>  getByProductName(String productName);
 
-	@Query("select p from Product p where productName=:productName and categoryId=:categoryId")///////////////
+	///@Query("select p from Product p where productName=:productName and categoryId=:categoryId")
 	List<Product> getByProductNameAndCategory_CategoryId(String productName, int categoryId);
 
 	//@Query("select p from Product p where productName=:productName or categoryId=:categoryId")
