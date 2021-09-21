@@ -29,7 +29,6 @@ public interface IProductService {
 	
 	void update(Product product);
 	
-	//@Query(value = "delete from Product p where product_id=:product_id", nativeQuery = true)
 	void delete(Product id);
 
 	

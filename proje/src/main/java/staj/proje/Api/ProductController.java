@@ -25,7 +25,7 @@ import staj.proje.Entities.Product;
 public class ProductController {
 
 	private IProductService productService;
-	
+	 
 	@Autowired
 	public ProductController(IProductService productService) {
 		super();
