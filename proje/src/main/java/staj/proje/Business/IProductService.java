@@ -1,9 +1,7 @@
 package staj.proje.Business;
 
 import java.util.List;
-
-import org.springframework.data.jpa.repository.Query;
-
+import staj.proje.cekirdek.Result;
 import staj.proje.Entities.Product;
 
 
@@ -25,11 +23,10 @@ public interface IProductService {
 	
 	List<Product> getByNameAndCategory(String productName, int categoryId);
 	
-	void add(Product product);
+	Result add(Product product);
 	
-	void update(Product product);
-	
-	void delete(Product id);
+	Result delete(Product id);
 
+	Result update(Product product);
 	
 }

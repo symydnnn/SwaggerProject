@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import staj.proje.cekirdek.Result;
+import staj.proje.cekirdek.SuccessResult;
 import staj.proje.DataAcccess.IProductDal;
 import staj.proje.Entities.Product;
 
@@ -73,24 +75,24 @@ public class ProductManager implements IProductService{
 
 	@Override
 	@Transactional
-	public void update(Product product) {
+	public Result update(Product product) {
 		productDal.save(product);
+		return new SuccessResult("Ürün Güncellendi.");
 	}
 
 
 	@Override
-	@Transactional
-	public void add(Product product) {
-		this.productDal.save(product);
+	public Result add(Product product) {  
+		 this.productDal.save(product);
+		 return new SuccessResult("Ürün Eklendi.");
 	}
 	
 	
 	@Override
 	@Transactional
-	public void delete(Product id) {
-		this.productDal.delete(id);
-		
+	public Result delete(Product productId) {
+		this.productDal.delete(productId);
+		return new SuccessResult("Ürün Eklendi.");	
 	}
-
 
 }

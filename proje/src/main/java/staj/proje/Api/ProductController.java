@@ -68,8 +68,7 @@ public class ProductController {
 	}
 	@DeleteMapping("/delete")
 	@ApiOperation(value="Ürün silme")
-	public void delete(@RequestParam ("productId") Product id){
-		 productService.delete(id);  //Kayıtlı olan ürünü siler :: ERROR 500 Hatası
-		
+	public void delete(@RequestParam ("productId") Product productId){
+		 productService.delete(productId);  //Kayıtlı olan ürünü siler :: ERROR 500 Hatası
 	}
 }

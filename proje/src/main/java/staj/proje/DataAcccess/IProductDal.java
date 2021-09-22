@@ -35,7 +35,5 @@ public interface IProductDal extends JpaRepository<Product, Integer> {
 	@Query("select p from Product p where productName=:productName and categoryId=:categoryId")
 	List<Product> getByNameAndCategory(String productName, int categoryId);
 
-	
-
-	
+		
 }

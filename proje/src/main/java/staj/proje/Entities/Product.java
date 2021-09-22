@@ -8,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -31,10 +29,7 @@ public class Product {
 	@Column(name="product_id")
 	@ApiModelProperty(value="productId",example = "1")
 	@JsonProperty
-	private int id;
-	
-	//@Column(name="category_id")
-	//private int categoryId;
+	private int productId;
 	
 	@Column(name="product_name")
 	@ApiModelProperty(value="productName",example = "Chai")
@@ -58,7 +53,7 @@ public class Product {
 	
 	@ManyToOne()
 	@JoinColumn(name="category_id")
-	@ApiModelProperty(value="categoryId",example = "1")
+ 	@ApiModelProperty(value="categoryId",example = "1")
 	@JsonProperty()
 	private Category category;
 
